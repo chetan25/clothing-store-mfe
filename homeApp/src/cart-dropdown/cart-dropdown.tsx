@@ -1,7 +1,7 @@
 import React from "react";
 import { CartDropdown, CartItemsWrapper } from './cart-dropdown.style';
-import { CartItems } from '../global-atoms';
-import { useRecoilValue } from 'recoil';
+import { CartItems, ShowCartDropdown } from '../global-atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import CartItem from "../cart-item/cart-item";
 import Button from '../button/button';
 import { useHistory } from "react-router-dom";
@@ -13,10 +13,12 @@ import { useHistory } from "react-router-dom";
 
 const CartDropDown = () => {
     const cartItems = useRecoilValue(CartItems);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setDropdownState] = useRecoilState(ShowCartDropdown);
     const history = useHistory();
 
     const goToCheckout = () => {
-        // dispatch(setCartIconToggle());
+        setDropdownState(false);
         history.push('/checkout');
     };
 

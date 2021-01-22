@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import { createGlobalStyle  } from 'styled-components';
 import Header from './header/header';
 import ShopPage from './pages/shop/shop';
+
 //@ts-ignore
 import recoilPersist from 'recoil-persist'
 
@@ -19,6 +20,7 @@ const { RecoilPersist, updateState } = recoilPersist(
 )
 
 const Directory = lazy(() => import("ProductApp/Directory"));
+const CheckoutPage = lazy(() => import("CheckoutApp/CheckoutPage"));
 
 
 const GlobalStyle = createGlobalStyle`
@@ -55,7 +57,8 @@ const App = () => {
                 <Route exact path='/' component={Directory}/>
                 <Route exact path='/shop' component={ShopPage} />
                 {/* <Route path='/signIn' render={() => currentUser ? (<Redirect to='/' />) : (<SignInSignOutPage/>)}/>
-                <Route path='/checkout' component={CheckOutPage}/> */}
+                */}
+                 <Route path='/checkout' component={CheckoutPage}/>
             </Suspense>
         </Switch>
       </Suspense>

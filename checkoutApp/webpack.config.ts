@@ -19,7 +19,7 @@ const config: WebPackOption = {
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "bundle.js",
-        publicPath: '/'
+        publicPath: 'http://localhost:4003/'
     },
     devtool: 'source-map',
     mode: "development",
@@ -75,14 +75,13 @@ const config: WebPackOption = {
               ],
         }), 
         new ModuleFederationPlugin({
-            name: "Shell",
-            filename: "remoteEntry.js",
+            name: "CheckoutApp",
+            filename: "remoteCheckout.js",
             remotes: {
-                ProductApp: "ProductApp@http://localhost:4001/remoteEntry.js",
-                CheckoutApp: "CheckoutApp@http://localhost:4003/remoteCheckout.js"
+                Shell: 'Shell@http://localhost:4000/remoteEntry.js'
             },
             exposes: {
-                "./Atoms": "./src/global-atoms.ts",
+                "./CheckoutPage": "./src/checkout/checkout.tsx",
             },
             // we need to make the shared React and React-dom registered as singleton and loaded from shell
             shared: [
@@ -131,7 +130,7 @@ const config: WebPackOption = {
                 "X-Requested-With, content-type, Authorization",
         },
         hot: true,
-        port: 4000,
+        port: 4003,
         open: true,
         inline: true,
         watchContentBase: true,

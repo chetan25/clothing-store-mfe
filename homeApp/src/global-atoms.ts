@@ -28,6 +28,56 @@ export const AddToCart = selector({
   }
 });
 
+export const RemoveItemFromCart = selector({
+  key: 'removeItemFromCart',
+  get: ({ get }) => {
+    return get(CartItems);
+  },
+  set: ({ set }, itemToRemove: any) => {
+    set(CartItems, (previousState: any) => {
+      return previousState.filter((item: any) => item.id !== itemToRemove.id);
+    })
+  }
+});
+
+export const ClearCart = selector({
+  key: 'clearCart',
+  get: ({ get }) => {
+    return get(CartItems);
+  },
+  set: ({ set }) => {
+    set(CartItems, () => {
+      return [];
+    })
+  }
+});
+
+export const RemoveItem = selector({
+  key: 'removeItem',
+  get: ({ get }) => {
+    return get(CartItems);
+  },
+  set: ({ set }, itemToRemove: any) => {
+    set(CartItems, (previousState: any) => {
+      const existing = previousState.find((item: any) => item.id === itemToRemove.id);
+
+      if(existing) {
+          if(existing.quantity === 1) {
+              return previousState.filter((item: any) => item.id !== existing.id);
+          }
+          return previousState.map((item: any) => {
+              return item.id !== existing.id ? item : {
+                  ...item,
+                  quantity: item.quantity -1
+              }
+          });
+      }
+
+      return previousState;
+    })
+  }
+});
+
 export const CartItemsCount = selector({
     key: 'cartItemsCount',
     get: ({get}) => {
@@ -46,7 +96,17 @@ export const ItemsDirectory = atom({
 export const ProductsData = atom({
   key: 'productsData',
   default: {}
+});
+
+export const CartTotal = selector({
+  key: 'cartTotal',
+  get: ({get}) => {
+    const cartItems: any[] = get(CartItems);
+     
+    return cartItems.reduce((acc: any, val: any) => acc +(val.quantity * val.price), 0)
+  }
 })
+
 
 export const ShowCartDropdown = atom({
   key: 'showDropdown',

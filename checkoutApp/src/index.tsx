@@ -1,0 +1,1 @@
+export { default as CheckOut }  from '../src/checkout/checkout';
