@@ -65,7 +65,8 @@ const config: WebPackOption = {
                 Shell: 'Shell@http://localhost:4000/remoteEntry.js'
             },
             exposes: {
-                './Directory': './src/directory/directory'
+                './Directory': './src/directory/directory',
+                './CollectionOverview': './src/collection-overview/collection-overview'
             },
             // we need to make the shared React and React-dom registered as singleton and loaded from shell
             shared: [

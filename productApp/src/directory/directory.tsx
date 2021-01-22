@@ -2,7 +2,7 @@ import React from "react";
 import { DirectoryMenu, HomePageWrapper } from './directory.style';
 import MenuItem from '../menuItem/menu-item';
 import { useRecoilValue } from 'recoil';
-import { ItemsDirectory } from "Shell/Atoms"
+import { ItemsDirectory } from "Shell/Atoms";
 
 export interface IDirectoryItem {
     id: number;

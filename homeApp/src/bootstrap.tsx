@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import ErrorBoundary from './error-boundary/error-boundary';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,8 +6,17 @@ import { RecoilRoot } from 'recoil';
 import { Switch, Route } from 'react-router-dom';
 import { createGlobalStyle  } from 'styled-components';
 import Header from './header/header';
+import ShopPage from './pages/shop/shop';
+//@ts-ignore
+import recoilPersist from 'recoil-persist'
 
-import { fetchCollectionAsync } from './fetchData';
+const { RecoilPersist, updateState } = recoilPersist(
+  ['cartItems'], // configurate that atoms will be stored (if empty then all atoms will be stored),
+    {
+        key: 'recoil-persist', // this key is using to store data in local storage
+        storage: localStorage // configurate which stroage will be used to store the data
+    }
+)
 
 const Directory = lazy(() => import("ProductApp/Directory"));
 
@@ -35,24 +44,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const ShopPage = ({match}: {match: {path: string}}) => {
-  console.log(match, 'match');
-  useEffect(() => {
-      const load = async() => {
-         await fetchCollectionAsync();
-      };
-
-      load();
-  });
-
-  return (
-      <div className='shop-page'>
-          <h2>Test is on</h2>
-      </div>
-  );
-};
-
-
 const App = () => {
     return (
       <ErrorBoundary>
@@ -73,6 +64,11 @@ const App = () => {
 };
 
 ReactDOM.render(
-    <BrowserRouter><RecoilRoot><App /></RecoilRoot></BrowserRouter>,
+    <BrowserRouter>
+      <RecoilRoot initializeState={({set}) => { updateState({set}) }}>
+        <RecoilPersist />
+        <App />
+      </RecoilRoot>
+    </BrowserRouter>,
     document.getElementById("root")
 );

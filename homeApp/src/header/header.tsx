@@ -3,9 +3,13 @@ import { HeaderWrapper, LogoContaiiner, LogoImage, NavOptions, LinkOptions } fro
 import { Link } from 'react-router-dom';
 import Logo from '../assets/icon.png';
 import CartIcon from "../cart-icon/cart-icon";
-// import CartDropDown from "components/cart-dropdown/cart-dropdown";
+import { ShowCartDropdown } from '../global-atoms';
+import { useRecoilValue } from 'recoil';
+import CartDropDown from "../cart-dropdown/cart-dropdown";
 
 const Header = () => {
+    const dropdownState = useRecoilValue(ShowCartDropdown);
+
     return (
         <HeaderWrapper>
             <LogoContaiiner>
@@ -18,9 +22,9 @@ const Header = () => {
                 <LinkOptions> <Link to='/signIn'>SignIn</Link></LinkOptions>
                 <CartIcon/>
             </NavOptions>
-            {/* {
-                isCartHidden ? null : <CartDropDown/>
-            } */}
+            {
+                !dropdownState ? null : <CartDropDown/>
+            }
         </HeaderWrapper>
     );
 };
