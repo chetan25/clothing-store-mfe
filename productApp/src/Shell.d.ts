@@ -1,6 +1,6 @@
   /// <reference types="react" />
 
-// import { RecoilState } from "recoil";
+declare module "Shell/Spinner";
 
 declare module "Shell/Atoms" {
     export const ItemsDirectory: any;

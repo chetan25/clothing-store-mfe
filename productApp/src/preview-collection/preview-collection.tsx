@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory, useLocation } from "react-router-dom";
 import { ProductItem } from '../../../homeApp/src/types';
 import { CollectionPreview, Title, Preview } from './preview-collection.style';
 import CollectionItem from '../collection-item/collection-item';
@@ -10,10 +11,14 @@ interface IProps  {
 }
 
 const PreviewCollection = (props: IProps) => {
-    const { title, items } = props;
+    const { title, items, routeName } = props;
+    const history = useHistory();
+    const location = useLocation();
+    console.log(location, 'location', routeName);
 
     const navigateTo = () => {
         // history.push(`${match.path}/${routeName}`);
+        history.push(`${location.pathname}/${routeName}`);
     };
 
     return (

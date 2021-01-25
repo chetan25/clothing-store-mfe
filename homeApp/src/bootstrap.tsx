@@ -55,7 +55,7 @@ const App = () => {
         <Switch>
             <Suspense fallback={<h2>Loading</h2>}>
                 <Route exact path='/' component={Directory}/>
-                <Route exact path='/shop' component={ShopPage} />
+                <Route path='/shop' component={ShopPage} />
                 {/* <Route path='/signIn' render={() => currentUser ? (<Redirect to='/' />) : (<SignInSignOutPage/>)}/>
                 */}
                  <Route path='/checkout' component={CheckoutPage}/>

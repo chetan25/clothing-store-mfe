@@ -66,7 +66,8 @@ const config: WebPackOption = {
             },
             exposes: {
                 './Directory': './src/directory/directory',
-                './CollectionOverview': './src/collection-overview/collection-overview'
+                './CollectionOverview': './src/collection-overview/collection-overview',
+                './Collection': './src/collection/collection.tsx'
             },
             // we need to make the shared React and React-dom registered as singleton and loaded from shell
             shared: [

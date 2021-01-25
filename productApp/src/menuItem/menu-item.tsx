@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 import { MenuItemWrapper, BackgroundImage, Content, Title, SubTitle } from './menu-item.style';
 
 interface IProps {
@@ -10,6 +11,7 @@ interface IProps {
 }
 
 const MenuItem = (props: IProps) => {
+    const history = useHistory();
     const {
         title,
         subtitle= 'Shop Now',
@@ -19,8 +21,12 @@ const MenuItem = (props: IProps) => {
     } = props;
     console.log(linkUrl, size);
 
+    const navigateTo = () => {
+        history.push(`${linkUrl}`);
+    };
+
     return (
-        <MenuItemWrapper className={size}>
+        <MenuItemWrapper className={size} onClick={navigateTo}>
             <BackgroundImage
                 className='background-image'
                 style={{backgroundImage: `url(${imageUrl})`}}

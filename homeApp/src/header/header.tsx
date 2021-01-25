@@ -19,7 +19,7 @@ const Header = () => {
             </LogoContaiiner>
             <NavOptions>
                 <LinkOptions><Link to='/shop' >Shop</Link></LinkOptions>
-                <LinkOptions> <Link to='/signIn'>SignIn</Link></LinkOptions>
+                {/* <LinkOptions> <Link to='/signIn'>SignIn</Link></LinkOptions> */}
                 <CartIcon/>
             </NavOptions>
             {

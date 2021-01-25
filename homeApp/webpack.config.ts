@@ -83,6 +83,7 @@ const config: WebPackOption = {
             },
             exposes: {
                 "./Atoms": "./src/global-atoms.ts",
+                "./Spinner": "./src/spinner/spinner.tsx"
             },
             // we need to make the shared React and React-dom registered as singleton and loaded from shell
             shared: [

@@ -11,3 +11,9 @@ declare module "ProductApp/CollectionOverview" {
     
     export default CollectionOverview;
 }
+
+declare module "ProductApp/Collection" {
+    const Collection: React.ComponentType;
+    
+    export default Collection;
+}
