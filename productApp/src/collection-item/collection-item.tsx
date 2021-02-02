@@ -1,6 +1,6 @@
 import React from 'react';
 import { CollectionIitem, ImageWrapper, CollectionFooter } from './collection-item.style';
-import { ProductItem } from '../../../homeApp/src/types';
+import { ProductItem } from '../interfaces';
 import Button from '../button/button';
 import { useSetRecoilState } from 'recoil';
 import { AddToCart } from "Shell/Atoms";

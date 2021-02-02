@@ -2,7 +2,7 @@ import React from 'react';
 import { CollectionOverviewWrapper } from './collection-overview.style';
 import { useRecoilValue } from 'recoil';
 import { ProductsData } from "Shell/Atoms";
-import { ProductItemsData } from '../../../homeApp/src/types';
+import { ProductItemsData } from '../interfaces';
 import PreviewCollection from '../preview-collection/preview-collection';
 
 const CollectionOverview = () => {

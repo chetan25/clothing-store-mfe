@@ -130,10 +130,16 @@ const config: WebPackOption = {
                 "X-Requested-With, content-type, Authorization",
         },
         hot: true,
+        host: '0.0.0.0',
+        public: 'localhost:4003',
         port: 4003,
         open: true,
         inline: true,
         watchContentBase: true,
+        watchOptions: {
+            aggregateTimeout: 500, // delay before reloading
+            poll: 1000 // enable polling since fsevents are not supported in docker
+        }
     },
 };
 

@@ -4,7 +4,6 @@ import { CartItems, CartTotal, ClearCart } from "Shell/Atoms";
 import { useRecoilValue } from 'recoil';
 import StripeCheckoutButton from '../stripe-button/stripe-checkout-button';
 import CheckOutItems from '../checkoutItem/checkoutItem';
-import { useRecoilState } from "recoil";
 import { useSetRecoilState } from "recoil";
 
 type CartItems = {

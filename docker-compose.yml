@@ -1,0 +1,44 @@
+version: "3.8"
+services: 
+  homeapp:
+    stdin_open: true
+    build:
+      context: ./homeApp
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes: 
+      - "/usr/src/homeapp/node_modules"
+      - ./homeApp:/usr/src/homeapp:rw
+  checkoutapp:
+    stdin_open: true
+    build:
+      context: ./checkoutApp
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4003:4003"
+    volumes: 
+      - "/usr/src/checkoutapp/node_modules"
+      - ./checkoutApp:/usr/src/checkoutapp:rw
+  productapp:
+    stdin_open: true
+    build:
+      context: ./productApp
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4001:4001"
+    volumes: 
+      - "/usr/src/productapp/node_modules"
+      - ./productApp:/usr/src/productapp:rw
+  checkoutserver:
+    stdin_open: true
+    build:
+      context: ./checkoutServer
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5050:5050"
+    volumes:
+      - "/usr/src/checkoutserver/node_modules"
+      - ./checkoutServer:/usr/src/checkoutserver:rw
+
+    

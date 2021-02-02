@@ -1,0 +1,25 @@
+{
+  "name": "checkoutserver",
+  "version": "1.0.0",
+  "description": "Server for Stripe payment",
+  "main": "server.js",
+  "keywords": [
+    "Server"
+  ],
+  "author": "chetandasauni",
+  "license": "ISC",
+  "sideEffects": false,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-sslify": "^1.2.0",
+    "firebase": "^8.2.2",
+    "stripe": "^8.132.0"
+  }
+}

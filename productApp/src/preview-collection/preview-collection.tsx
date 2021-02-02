@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from "react-router-dom";
-import { ProductItem } from '../../../homeApp/src/types';
+import { ProductItem } from '../interfaces';
 import { CollectionPreview, Title, Preview } from './preview-collection.style';
 import CollectionItem from '../collection-item/collection-item';
 

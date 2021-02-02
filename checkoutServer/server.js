@@ -12,7 +12,7 @@ if(process.env.NODE_ENV !== 'production') {
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const port = process.env.PORT || 5050;
+const port = 5050;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -29,9 +29,13 @@ app.use(cors());
 
 app.listen(port, error => {
    if(error) throw error;
-   console.log('Server Started');
+   console.log('Server Started Hurrray');
 });
 
+app.get('/test', function(req, res) {
+    console.log('test');
+    res.status(200).send({ success: 'test' });
+});
 
 app.post('/payment', function(req, res) {
    const body = {

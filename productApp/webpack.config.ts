@@ -118,10 +118,16 @@ const config: WebPackOption = {
         historyApiFallback: {
             index: 'index.html'
         },
+        host: '0.0.0.0',
+        public: 'localhost:4001',
         port: 4001,
         open: true,
         inline: true,
         watchContentBase: true,
+        watchOptions: {
+            aggregateTimeout: 500, // delay before reloading
+            poll: 1000 // enable polling since fsevents are not supported in docker
+        }
     },
 };
 

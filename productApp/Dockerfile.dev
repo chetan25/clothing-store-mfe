@@ -1,0 +1,14 @@
+FROM node:alpine
+
+WORKDIR /usr/src/productapp
+
+COPY package.json /usr/src/productapp/package.json
+COPY package-lock.json /usr/src/productapp/package-lock.json
+
+RUN npm ci
+
+COPY . .
+
+EXPOSE 4001
+
+CMD ["npm", "start"]

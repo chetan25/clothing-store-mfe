@@ -1,0 +1,14 @@
+FROM node:alpine
+
+WORKDIR /usr/src/homeapp
+
+COPY package.json /usr/src/homeapp/package.json
+COPY package-lock.json /usr/src/homeapp/package-lock.json
+
+RUN npm ci
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["npm", "start"]
