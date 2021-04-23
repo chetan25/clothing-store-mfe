@@ -1,3 +1,9 @@
+---
+title: Sample Store Exmple with Docker and Micro frontends.
+excerpt: This is an effort to rebuild one of dummy site "https://top-clothing.herokuapp.com/" using micro frontends.
+Tools: ['Reeact', 'Javascript', 'Webapck', 'Typescript', 'Docker']
+---
+
 # Clothing Store with Module Federation.
 This is an effort to rebuild one of dummy site "https://top-clothing.herokuapp.com/" using micro frontends.
 
