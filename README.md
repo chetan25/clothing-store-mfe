@@ -13,6 +13,9 @@ This is an effort to rebuild one of dummy site "https://top-clothing.herokuapp.c
 - HomeApp - This is the main Shell App that loads other Micro FE Apps.
 - ProductApp -This contains all the Product related components.
 
+### State Management 
+For state managenent and common state, I have used Recoil. Recoil seems to be a good fit for sharing state, since we can expose atoms from one App and consumed them in another App. A good example is exposing Atoms from the the container app and consuming it in the product app.
+
 ### How to use
 > Install `Docker` for your machine.
 > Then navigate to the root of the Repository and run `docker-compose up`
